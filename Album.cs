@@ -13,9 +13,9 @@ public class Album
     Musics = [];
   }
 
-  public Music AddMusic(string name, Album album, Band band, int duration)
+  public Music AddMusic(string name, int duration)
   {
-    var music = new Music(name, album, band, duration);
+    var music = new Music(name, this, Band, duration);
     Musics.Add(music);
     return music;
   }

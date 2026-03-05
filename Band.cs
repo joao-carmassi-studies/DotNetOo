@@ -11,9 +11,9 @@ public class Band
     Albuns = [];
   }
 
-  public Album AddAlbum(string name, Band band)
+  public Album AddAlbum(string name)
   {
-    var album = new Album(name, band);
+    var album = new Album(name, this);
     Albuns.Add(album);
     return album;
   }
@@ -29,7 +29,7 @@ public class Band
     foreach (Album album in Albuns)
     {
       var totalDuration = album.Musics.Sum(music => music.Duration);
-      Console.WriteLine($"\n{album.Name} - {totalDuration / 60}:{totalDuration % 60}");
+      Console.WriteLine($"\n{album.Name} - {totalDuration / 60:D2}:{totalDuration % 60:D2}");
       foreach (Music music in album.Musics)
       {
         Console.WriteLine($"- {music.Name}");
